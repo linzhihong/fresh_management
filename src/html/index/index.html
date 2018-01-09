@@ -1,0 +1,109 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<title>后台首页</title>
+		<link rel="stylesheet" href="../../css/index/index.css" />
+	</head>
+	<body>
+	<header class="navbar-wrapper">
+		<div class="navbar-fixed-top">
+			<div class="container-fluid">
+				<div class="title">
+					<img src="../../img/public/logo1.png"/>冰小柜
+				</div>
+			</div>				
+			<nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
+				<ul class="cl">
+					<li>一级管理员：周明</li><li>
+						<a href="#">退出</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<aside class="Hui-aside">
+		<div class="menu_dropdown bk_2">
+			<dl id="menu-data">
+				<dt><img src="../../img/data/data.png"/>&nbsp;数据<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+				<dd>
+					<ul>
+						<li><a data-href="../data/datamap.html" data-title="数据地图" href="javascript:void(0)"><img src="../../img/data/datamap.png"/>&nbsp;数据地图</a></li>
+						<li><a data-href="../data/populationdata.html" data-title="总体数据" href="javascript:void(0)"><img src="../../img/data/populationdata.png"/>&nbsp;总体数据</a></li>
+						<li><a data-href="../data/currentdata.html" data-title="当前数据" href="javascript:void(0)"><img src="../../img/data/currentdata.png"/>&nbsp;当前数据</a></li>
+					</ul>
+				</dd>
+			</dl>
+			<dl id="menu-manage">
+				<dt><img src="../../img/manage/manage.png"/>&nbsp;管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+				<dd>
+					<ul>
+						<li><a data-href="../manage/usermanage.html" data-title="用户管理" href="javascript:void(0)"><img src="../../img/manage/usermanage.png"/>&nbsp;用户管理</a></li>
+						<li><a data-href="../manage/ordermanage.html" data-title="订单管理" href="javascript:void(0)"><img src="../../img/manage/ordermanage.png"/>&nbsp;订单管理</a></li>
+						<li><a data-href="../manage/equipmanage.html" data-title="设备管理" href="javascript:void(0)"><img src="../../img/manage/equipmanage.png"/>&nbsp;设备管理</a></li>
+						<li><a data-href="../manage/networkmanage.html" data-title="网点管理" href="javascript:void(0)"><img src="../../img/manage/networkmanage.png"/>&nbsp;网点管理</a></li>
+						<li><a data-href="../manage/adminmanage.html" data-title="管理员管理" href="javascript:void(0)"><img src="../../img/manage/adminmanage.png"/>&nbsp;管理员管理</a></li>
+					</ul>
+				</dd>
+			</dl>
+			<dl id="menu-operate">
+				<dt><img src="../../img/operate/operate.png"/>&nbsp;运营<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+				<dd>
+					<ul>
+						<li><a data-href="../operate/priceformulation.html" data-title="价格制定" href="javascript:void(0)"><img src="../../img/operate/priceformulation.png"/>&nbsp;价格制定</a></li>
+						<li><a data-href="../operate/activityformulation.html" data-title="活动制定" href="javascript:void(0)"><img src="../../img/operate/activityformulation.png"/>&nbsp;活动制定</a></li>
+						<li><a data-href="../operate/infordelivery.html" data-title="信息发布" href="javascript:void(0)"><img src="../../img/operate/infordelivery.png"/>&nbsp;信息发布</a></li>
+					</ul>
+				</dd>
+			</dl>
+			<dl id="menu-comments">
+				<dt><img src="../../img/setting/setting.png"/>&nbsp;设置<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
+				<dd>
+					<ul>
+						<li><a data-href="http://h-ui.duoshuo.com/admin/" data-title="系统设置" href="javascript:;"><img src="../../img/setting/systemsetting.png"/>&nbsp;系统设置</a></li>
+						<li><a data-href="feedback-list.html" data-title="个人设置" href="javascript:void(0)"><img src="../../img/setting/personalsetting.png"/>&nbsp;个人设置</a></li>
+					</ul>
+				</dd>
+			</dl>
+	</div>
+	</aside>
+	<div class="dislpayArrow hidden-xs"><a class="pngfix" href="javascript:void(0);" onClick="displaynavbar(this)"></a></div>
+	<section class="Hui-article-box">
+		<div id="Hui-tabNav" class="Hui-tabNav hidden-xs">
+			<div class="Hui-tabNav-wp">
+				<ul id="min_title_list" class="acrossTab cl">
+					<li class="active">
+						<span title="数据地图" data-href="../data/datamap.html">数据地图</span>
+						<em></em>
+					</li>
+				</ul>
+			</div>
+			<div class="Hui-tabNav-more btn-group"><a id="js-tabNav-prev" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d4;</i></a><a id="js-tabNav-next" class="btn radius btn-default size-S" href="javascript:;"><i class="Hui-iconfont">&#xe6d7;</i></a></div>
+			</div>
+				<div id="iframe_box" class="Hui-article">
+					<div class="show_iframe">
+						<div style="display:none" class="loading"></div>
+						<iframe scrolling="yes" frameborder="0" src="../data/datamap.html"></iframe>
+				</div>
+			</div>
+		</div>
+	</section>	
+	<div class="contextMenu" id="Huiadminmenu">
+		<ul>
+			<li id="closethis">关闭当前 </li>
+			<li id="closeall">关闭全部 </li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="../../vendor/require/require.js" ></script>
+	<script type="text/javascript" src="../../vendor/require-help.js" ></script>
+	<script type="text/javascript">
+		require(['jquery','hui_admin','hui','layer','jquery_contextmenu'], function ($,hui_admin,hui,layer,jquery_contextmenu){
+			console.log("哈哈哈哈");
+		})
+	</script> 
+	</body>
+</html>

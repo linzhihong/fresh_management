@@ -1,0 +1,45 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+.breadcrumb{
+	padding: 0px 20px!important;
+	margin-bottom: 0px !important;
+}
+.sel{
+	width: 100%;
+	height: 60px;
+	line-height: 60px;
+}
+select{
+	width: 100px;
+	line-height: 20px;
+	font-size: 15px !important;
+	background: #eeeeee;
+}
+table{
+	width: 100%;
+	height: 100%;
+}
+table tr{
+	width: 100%;
+}
+table tr td{
+	width: 33.33%;
+	height: 100%;
+}
+table tr td .td_title{
+	height: 40px;
+	font-size: 15px;
+	margin-top: 15px;
+	margin-left: 5%;
+}
+table tr td  .td_val{
+	text-align: center;
+	margin-right: 10%;
+	height: 130px;
+	line-height: 130px;
+	font-size:45px;
+	color: #00a149;
+	margin-bottom: 15px;
+}

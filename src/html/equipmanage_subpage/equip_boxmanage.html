@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<link rel="stylesheet" href="../../css/equipmanage_subpage/equip_boxmanage.css" />
+		<title>设备管理-箱格管理</title>
+	</head>
+	<body>	
+		<div id="app" class="container-fluid">
+			<div class="boxinfo">
+				<span>箱格数据统计：江苏省-南京市-南京理工大学-001</span>
+				<div>
+					<span>柜格总数<input disabled="disabled" type="text" id=""/></span>
+					<span>闲置柜格<input disabled="disabled" type="text" id=""/></span>
+					<span>在用柜格<input disabled="disabled" type="text" id=""/></span>
+					<span>故障柜格<input disabled="disabled" type="text" id=""/></span>
+				</div>				
+			</div>
+			<hr />
+			<div class="operation">
+				<span>柜格管理操作</span>
+				<a>所有柜格开锁</a>
+				<a>闲置柜格开锁</a>
+			</div>
+			<div class="boxul">
+				<ul>
+            		<a><li style="background:green;"></li></a>
+            		<a><li style="background:green;"></li></a>
+            		<a><li style="background:green;"></li></a>
+            		<a><li style="background:green;"></li></a>
+            		<a><li style="background:green;"></li></a>
+            		<a><li style="background:green;"></li></a>
+            		<a><li style="background:green;"></li></a>
+            		<a><li style="background:green;"></li></a>
+            		<a><li style="background:green;"></li></a>
+            		<a><li style="background:green;"></li></a>
+        		</ul> 
+        		<!--<div class="clear"></div>-->
+        		<div>
+        			<div class="box">
+		    			<div class="colorbox available"></div><span>闲置(可用)</span>	        	
+		    		</div>
+		    		<div class="box">
+		    			<div class="colorbox used"></div><span>在用</span>	        	
+		    		</div>
+		    		<div class="box">
+		    			<div class="colorbox fault"></div><span>故障</span>	        	
+		    		</div>
+        		</div>
+        		
+			</div>			
+		</div>
+		<script type="text/javascript" src="../../vendor/require/require.js" ></script>
+		<script type="text/javascript" src="../../vendor/require-help.js" ></script>
+		<script>
+			require(['jquery','bootstrap','hui_admin','hui','Vue','jquery_validate','WdatePicker','vue_router'], function ($,bootstrap,hui_admin,hui,Vue,jquery_validate,WdatePicker,vue_router){				
+				var vm=new Vue({
+					el:'#app',
+					data:{
+	
+					},				
+					mounted:function(){
+						this.$nextTick(function() {
+					      this.init();
+					  	})
+					},				
+					methods:{
+						init:function(){							
+							console.log("哈哈");														
+						}
+					}
+				});
+			})
+		</script> 
+	</body>
+</html>

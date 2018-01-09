@@ -1,0 +1,120 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<title>信息发布</title>
+		<link rel="stylesheet" href="../../css/operate/infordelivery.css" />		
+	</head>
+	<body>	
+		<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 运营 <span class="c-gray en">&gt;</span> 信息发布 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>		
+		<div id="app" class="container-fluid">
+			<div class="row">
+				<div class="col-xs-9">
+					<div class="sel">
+						<select>	
+						   <option>全国</option>
+						   <option>福建省</option>
+						   <option>江西省</option>
+						   <option>湖南省</option>
+						   <option>湖北省</option>
+						</select>
+						<select class="select1">	
+						   <option></option>
+						</select>
+						<select class="select1">	
+						   <option></option>
+						</select>
+						<button type="button"><i class="Hui-iconfont">&#xe665;</i></button>
+					</div>
+				</div>
+				<div class="col-xs-3 text-right">
+					<div class="sel">
+						<select>	
+						   <option>排序</option>
+						   <option>升序</option>
+						   <option>降序</option>						 
+						</select>
+					</div>
+				</div>	
+			</div>
+			<hr />
+			<div class="mt-20">
+				<table class="table table-border table-bordered table-hover table-bg table-sort">
+					<thead>
+						<tr class="text-c">
+							<th width="25"><input type="checkbox" name="" value=""></th>
+							<th width="70">信息类别</th>
+							<th>信息内容</th>
+							<th width="150">发布人</th>
+							<th width="150">接收人</th>
+							<th width="110">发布渠道1</th>							
+							<th width="110">发布渠道2</th>							
+							<th width="110">发布渠道3</th>							
+							<th width="130">发布时间</th>
+							<th width="80">当前状态</th>
+							<th width="100">								
+								<div>
+									<a href="/">日志</a>	
+									<a href="/">添加+</a>	
+								</div>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="text-c">
+							<td><input type="checkbox" value="1" name=""></td>
+							<td>提示信息</td>
+							<td>亲爱的用户,你好亲爱的用户,你好亲爱的用户,你好亲爱的用户,你好亲爱的用户,你好亲爱的用户,你好亲爱的用户,你好亲爱的用户,你好亲爱的用户,你好亲爱的用户,你好</td>
+							<td>
+								四级管理<br />
+								张三-12345679900
+							</td>
+							<td>
+								单个用户<br />
+								用户-12345679900
+							</td>
+							<td>微信公众号推送</td>
+							<td>106短信</td>
+							<td>管理平台</td>
+							<td>2017-11-11 8:30</td>
+							<td>待发布</td>
+							<td>
+								<div>
+									<a href="/">取消</a>	
+									<a href="/">修改</a>	
+								</div>								
+							</td>
+						</tr>						
+					</tbody>
+				</table>
+				<div id="page" class="page_div"></div>
+			</div>			
+		</div>
+		<script type="text/javascript" src="../../vendor/require/require.js" ></script>
+		<script type="text/javascript" src="../../vendor/require-help.js" ></script>
+		<script>
+			require(['jquery','bootstrap','hui_admin','hui','Vue'], function ($,bootstrap,hui_admin,hui,Vue){				
+				var vm=new Vue({
+					el:'#app',
+					data:{
+	
+					},				
+					mounted:function(){
+						this.$nextTick(function() {
+					      this.init();
+					  	})
+					},				
+					methods:{
+						init:function(){
+							console.log("init");
+						}
+					}
+				});
+			})
+		</script> 
+	</body>
+</html>

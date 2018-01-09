@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<title>总体数据</title>
+		<link rel="stylesheet" href="../../css/data/populationdata.css" />
+	</head>
+	<body>
+		<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 数据 <span class="c-gray en">&gt;</span> 总体数据 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+		<div id="app" class="container-fluid">
+			<div class="sel">
+				<select>
+				  <option>全国</option>
+				  <option>福建省</option>
+				  <option>江西省</option>
+				  <option>湖南省</option>
+				  <option>湖北省</option>
+				</select>
+			</div>
+			<div class="table-responsive">
+				<table class="table table-bordered">
+					<tr>
+						<td>
+							<div class="td_title">小柜总数(门)</div>
+							<div class="td_val">14000</div>
+						</td>
+						<td>
+							<div class="td_title">设备总数(台)</div>
+							<div class="td_val">14000</div>
+						</td>
+						<td>
+							<div class="td_title">网点总数(个)</div>
+							<div class="td_val">14000</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="td_title">用户总数(人)</div>
+							<div class="td_val">14000</div>
+						</td>
+						<td>
+							<div class="td_title">订单总数(个)</div>
+							<div class="td_val">14000</div>
+						</td>
+						<td>
+							<div class="td_title">消费总长(小时)</div>
+							<div class="td_val">14000</div>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<div class="td_title">消费总额(元)</div>
+							<div class="td_val">14000</div>
+						</td>
+						<td>
+							<div class="td_title">充值总额(元)</div>
+							<div class="td_val">14000</div>
+						</td>
+						<td>
+							<div class="td_title">赠送总时(小时)</div>
+							<div class="td_val">14000</div>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>		
+	</body>
+	<script type="text/javascript" src="../../vendor/require/require.js" ></script>
+	<script type="text/javascript" src="../../vendor/require-help.js" ></script>
+	<script type="text/javascript">
+		require(['jquery','bootstrap','hui_admin','hui','layer','jquery_contextmenu','Vue'], function ($,bootstrap,hui_admin,hui,layer,jquery_contextmenu,Vue){
+			console.log("哈哈哈哈");
+			var vm=new Vue({
+				el:"#app",
+				data:{
+					aa:"haha"
+				}
+			})
+		})
+	</script> 
+</html>

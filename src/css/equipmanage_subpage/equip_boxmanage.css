@@ -1,0 +1,88 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+.clear{
+	clear: both;
+}
+.boxinfo{
+	font-size: 14px;
+	color: #333333;
+	margin-top: 10px !important;
+}
+.boxinfo span{
+	margin-left: 15px !important;
+}
+.boxinfo a{
+	font-size: 12px;
+	text-decoration: underline;
+	color: #333333;
+	margin-left: 20px;
+	float: right;
+}
+.boxinfo input{
+	width: 40px;
+	margin-left: 5px !important;
+	border: 1px solid #CCCCCC;
+}
+.operation{
+	font-size: 14px;
+	color: #333333;
+	width: 40%;
+	margin-left: 15px !important;
+	margin-top: 10px !important;
+}
+.operation a{
+	font-size: 12px;
+	text-decoration: underline;
+	color: #333333;
+	margin-left: 20px;
+	float: right;
+}
+hr{
+	width: 100%;
+	border: 1px solid #CCCCCC;
+	margin: 10px auto !important;
+}
+.boxul{
+	width: 100%;
+	font-size: 14px;
+	color: #333333;
+	margin-top: 10px !important;
+	margin-left: 15px !important;
+	float: left;
+}
+.boxul ul{
+	list-style: none;
+	width: 40%;
+}
+.boxul ul li{
+	border: 1px solid #000; 
+	width: 50%;
+	padding: 40px 0;
+	display: inline-block;
+	float: left;
+}
+.box{
+	float: left;
+	margin-top: 60px;
+	margin-left: 20px;
+}
+.box .colorbox{
+	width: 20px;
+	height: 20px;
+	float: left;
+	
+}
+.box .available{
+	background: green;
+}
+.box .used{
+	background: red;
+}
+.box .fault{
+	background: orange;
+}
+.box span{
+	float: left;
+}

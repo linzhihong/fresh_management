@@ -1,0 +1,149 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<title>价格制定-添加</title>
+		<style>
+			.form-horizontal .form-group{
+				margin-left: 0px !important;
+			}
+		</style>
+	</head>
+	<body>	
+		<article id="app" class="page-container">
+			<form class="form form-horizontal" id="form-admin-add">				
+				<div class="row cl">
+					<label class="form-label col-xs-3 col-sm-2"><span class="c-red">*</span>收费模式：</label>
+					<div class="formControls col-xs-9 col-sm-10"> 
+						<span class="select-box" style="width:150px;">
+							<select class="select" name="sex" size="1">
+								<option></option>							
+							</select>
+						</span> 
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-3 col-sm-2"><span class="c-red">*</span>价格方案：</label>
+					<div class="formControls col-xs-9 col-sm-10">
+						<span class="input-group" style="width:120px;">
+							<input type="text" class="input-text" value="" placeholder="" id="adminname" name="adminname">
+						</span>
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-3 col-sm-2"><span class="c-red">*</span>附属条件：</label>
+					<div class="formControls col-xs-9 col-sm-10"> 
+						<span class="select-box" style="width:150px;">
+							<select class="select" name="managelevel" size="1">
+								<option></option>
+							</select>
+						</span> 
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-3 col-sm-2"><span class="c-red">*</span>执行起始时间：</label>
+					<div class="formControls col-xs-9 col-sm-10">
+						<span class="input-group" style="width:200px;">
+							<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d %H-%m-%s\'}' })" id="logmin" class="input-text Wdate">
+						</span> 
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-3 col-sm-2"><span class="c-red">*</span>执行结束时间：</label>
+					<div class="formControls col-xs-9 col-sm-10">
+						<span class="input-group" style="width:200px;">
+							<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}'})" id="logmax" class="input-text Wdate">
+						</span> 
+					</div>
+				</div>
+				<div class="row cl">
+					<div class="col-xs-8 col-sm-9 col-xs-offset-3 col-sm-offset-2">
+						<input class="btn btn-primary radius" type="submit" value="确认">
+					</div>
+				</div>
+			</form>
+		</article>
+		<script type="text/javascript" src="../../vendor/require/require.js" ></script>
+		<script type="text/javascript" src="../../vendor/require-help.js" ></script>
+		<script>
+			require(['jquery','bootstrap','hui_admin','hui','Vue','jquery_validate','vue_router','WdatePicker'], function ($,bootstrap,hui_admin,hui,Vue,jquery_validate,vue_router,WdatePicker){				
+				var vm=new Vue({
+					el:'#app',
+					data:{
+	
+					},				
+					mounted:function(){
+						this.$nextTick(function() {
+					      this.init();
+					  	})
+					},				
+					methods:{
+						init:function(){							
+//							console.log(vm.GetQueryString("id"));		
+							$.extend($.validator.messages, {
+								required: "required",
+							});
+							$("#form-admin-add").validate({
+								rules:{
+									adminname:{
+										required:true,
+									},		
+									sex:{
+										required:true,
+									},
+									idcard:{
+										required:true,
+									},
+									phone:{
+										required:true,
+									},
+									contactname:{
+										required:true,
+									},
+									contactphone:{
+										required:true,
+									},
+									managelevel:{
+										required:true,
+									},
+									managepower:{
+										required:true,
+									}
+								},
+								onkeyup:false,
+								focusCleanup:true,
+								success:"valid",
+								submitHandler:function(form){
+//									$(form).ajaxSubmit({
+//										type: 'post',
+//										url: "xxxxxxx" ,
+//										success: function(data){
+//											layer.msg('添加成功!',{icon:1,time:1000});
+//										},
+//						                error: function(XmlHttpRequest, textStatus, errorThrown){
+//											layer.msg('error!',{icon:1,time:1000});
+//										}
+//									});
+									alert("haha");
+									var index = parent.layer.getFrameIndex(window.name);
+//									parent.$('.btn-refresh').click();
+//									parent.layer.close(index);
+									alert(index);
+								}
+							});
+						},						
+						GetQueryString:function(name){
+						     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+						     var r = window.location.search.substr(1).match(reg);
+						     if(r!=null)return  unescape(r[2]); return null;
+						}
+					}
+				});
+			})
+		</script> 
+	</body>
+</html>

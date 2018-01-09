@@ -1,0 +1,123 @@
+html, body{ 
+	height:100%;
+}
+body{
+	font-size:14px;
+}
+.row{
+	margin: 0px !important;
+	padding: 0px !important; 
+}
+.header,.footer{ 
+	position:absolute; 
+	left:0; right:0; 
+	width:100%; 
+	z-index:99;
+}
+.header{
+	top:0; 
+	height:90px;
+	line-height: 90px; 
+	background:#0995d2;
+}
+.header .title{
+	font-size: 30px;
+	color: #FFFFFF;
+	margin-left: 5%;
+}
+.header .title img{
+	width: 40px;
+	margin-right: 10px;
+	position: relative;
+	top: -3px;
+}
+.header .exit{
+	float: right;
+	margin-right: 5%;
+}
+.header .exit a{
+	text-decoration: none;
+	font-size: 15px;
+	color: #ffffff;
+}
+.loginWraper{ 
+	position:absolute;
+	width:100%; 
+	left:0; 
+	top:0; 
+	bottom:0; 
+	right:0; 
+	z-index:1; 
+	background:url(../../img/login/login_bg.jpg) no-repeat center;
+	background-size: 100% 100%;
+}
+.loginBox{ 
+	position:absolute; 
+	width:500px; 
+	height:330px; 
+	background:#FFFFFF; 
+	left:50%; 
+	top:50%; 
+	margin-left:-309px; 
+	margin-top:-184px; 
+}
+.loginBox .login_title{
+	width: 100%;
+	line-height: 65px;
+	background: #00a2ea;
+	text-align: center;
+	font-size: 26px;
+	color: #000000;
+}
+.loginBox .login_title img{
+	width: 40px;
+	margin-right: 10px;
+	position: relative;
+	top: -3px;
+}
+@media (max-width:617px) {
+	.loginbox{ 
+		width:100%; 
+		position:static; 
+		margin-top:0; 
+		margin-left:0;
+	}
+}
+form{
+	margin-left: 5% !important; 
+}
+.loginBox .row{
+	margin-top:10px !important;
+}
+.loginBox .row .label_title{
+	text-align: center;
+	font-size: 15px;
+	color: #000000;
+}
+.loginBox .row input{
+	line-height: 25px !important;
+}
+.loginBox .input-text{ 
+	width:100%;
+}
+.loginBox .input-text1{
+	width:115%;
+}
+@media (max-width:617px) {
+	.loginBox .input-text{ 
+		width:60%;
+	}
+	.loginBox .input-text1{
+		width:75%;
+	}
+}
+.loginBox .row .sendcode{
+	width: 100%;
+	font-size: 15px;
+	color: #333333;
+	background: #CCCCCC;
+}
+
+input[type="submit"],input[type="reset"]{
+	padding: 8px 30px!important;
+}

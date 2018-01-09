@@ -1,0 +1,311 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<title>用户管理</title>
+		<link rel="stylesheet" href="../../css/manage/usermanage.css" />		
+	</head>
+	<body>	
+		<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理 <span class="c-gray en">&gt;</span> 用户管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+		<div id="app" class="container-fluid">
+			<div class="row">
+				<div class="col-xs-8">
+					<div class="sel">
+						<select>	
+						   	<option>全国</option>
+						   	<option>福建省</option>
+						   	<option>江西省</option>
+						   	<option>湖南省</option>
+						   	<option>湖北省</option>
+						</select>
+						<select id="first" class="select1" v-on:change="firstSel()">	
+							<option value="-1">选择</option>
+						    <option value="0">微信号</option>
+						   	<option value="1">手机号码</option>
+						   	<option value="2">当前状态</option>
+						</select>
+						<select id="second" class="select2">	
+						   <option></option>
+						</select>
+						<input id="third" type="text" name="" value=""/>
+						<button type="button"><i class="Hui-iconfont">&#xe665;</i></button>
+					</div>
+				</div>
+				<div class="col-xs-4 text-right">
+					<div class="sel">
+						<select class="select1">	
+						   <option>排序</option>
+						   <option>按注册时间排序</option>
+						   <option>按用柜次数排序</option>						 
+						   <option>按用柜总时排序</option>						 
+						   <option>按当前可用余额排序</option>						 
+						   <option>按备用金余额排序</option>						 
+						   <option>按赠送时长余额排序</option>						 
+						</select>						
+					</div>
+				</div>	
+			</div>
+			<!--<hr />-->
+			<div>
+				<div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a href="javascript:;" v-on:click="delall()" class="btn btn-danger radius"><i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a> </span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>				
+				<table class="table table-border table-bordered table-hover table-bg table-sort">
+					<thead>
+						<tr class="text-c">
+							<th width="25"><input v-on:click="chooseall($event)" type="checkbox" name="" value="" class="chooseall"></th>
+							<th width="80">手机号码</th>
+							<th width="80">注册时间</th>
+							<th width="60">用柜次数</th>
+							<th width="80">用柜总时</th>
+							<th width="60">当前可用余额</th>
+							<th width="60">备用金余额</th>
+							<th width="60">赠送时长余额</th>
+							<th width="50">当前状态</th>
+							<th width="150">
+								批量操作
+								<div>
+									<a v-on:click="user_stopall($event)" href="javascript:;" title="禁用">禁用</a>	
+									<a title="发信息" href="javascript:;" v-on:click="user_multiplesend('用户管理-发信息','../usermanage_subpage/user_multiplesend.html?id='+allobj,'1','800','600')" class="ml-5">发消息</a>	
+									<a href="/">用户日志</a>	
+								</div>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="text-c">
+							<td><input v-on:click="choose($event)" class="datainput" type="checkbox" value="1" name=""></td>
+							<td>12345678912</td>
+							<td>2017-11-11  8:30</td>
+							<td>5</td>
+							<td>20小时50分钟</td>
+							<td>25元</td>
+							<td>10元</td>
+							<td>15小时</td>
+							<td>在线</td>
+							<td class="td-manage">
+								<a v-on:click="user_stop($event,'10001')" href="javascript:;" title="禁用" class="forbidden">禁用</a>	
+								<a title="发信息" href="javascript:;" v-on:click="user_alonesend('用户管理-发信息','../usermanage_subpage/user_alonesend.html?id='+ms,'1','800','600')" class="ml-5">发消息</a>	
+								<a href="/">用户日志</a>	
+							</td>
+						</tr>
+						<tr class="text-c">
+							<td><input v-on:click="choose($event)" class="datainput" type="checkbox" value="2" name=""></td>
+							<td>18850105180</td>
+							<td>2017-11-11  8:30</td>
+							<td>5</td>
+							<td>20小时50分钟</td>
+							<td>25元</td>
+							<td>10元</td>
+							<td>15小时</td>
+							<td>在线</td>
+							<td class="td-manage">
+								<a v-on:click="user_stop($event,'10002')" href="javascript:;" title="禁用" class="forbidden">禁用</a>	
+								<a title="发信息" href="javascript:;"  v-on:click="user_alonesend('用户管理-发信息','../usermanage_subpage/user_alonesend.html?id='+ms,'1','800','600')"  class="ml-5">发消息</a>	
+								<a href="/">用户日志</a>	
+							</td>
+						</tr>	
+					</tbody>
+				</table>
+				<div id="page" class="page_div"></div>		
+			</div>			
+		</div>
+		<script type="text/javascript" src="../../vendor/require/require.js" ></script>
+		<script type="text/javascript" src="../../vendor/require-help.js" ></script>
+		<script>
+			require(['jquery','hui_admin','hui','bootstrap','layer','Vue'], function ($,hui_admin,hui,bootstrap,layer,Vue){				
+				var vm=new Vue({
+					el:'#app',
+					data:{
+						ms:"1",
+						a:"",//用来判断单选是否已全部选中，全选中ture否则false
+						allobj:[]//将选中的放入这个数组中
+					},				
+					mounted:function(){
+						this.$nextTick(function() {
+					      this.init();
+					  	})
+					},				
+					methods:{
+						//初始化页面
+						init:function(){
+							$("#second").hide(); //初始化的时候第二个下拉列表隐藏
+							$("#third").hide();
+							console.log("init");							
+						},
+						//全选/全不选
+						chooseall:function(event){
+							vm.allobj=[];
+							if($(event.target)[0].checked){								
+								for(var i=0;i<$(".datainput").length;i++){
+									$(".datainput")[i].checked=true;
+									vm.allobj.push($(".datainput")[i].value);
+								}
+							}else{
+								for(var i=0;i<$(".datainput").length;i++){
+									$(".datainput")[i].checked=false;
+									vm.allobj.pop($(".datainput")[i].value);
+								}
+							}
+							console.log(vm.allobj);
+						},
+						//判断单选时,若已全部选择,则全选框选中
+						judgech:function(){							
+							for(var i=0;i<$(".datainput").length;i++){
+								if($(".datainput")[i].checked){
+									vm.a="1";
+									continue;
+								}else{
+									return false;
+								}
+							}
+							if(vm.a=="1"){
+								return true;
+							}
+						},
+						//单选
+						choose:function(event){
+							if($(event.target)[0].checked){								
+								vm.allobj.push($(event.target)[0].value);
+								//判断全选框的状态
+								if(vm.judgech()){
+									$(".chooseall")[0].checked=true;								
+								}else{
+									$(".chooseall")[0].checked=false;
+								}
+							}else{
+								vm.allobj.pop($(event.target)[0].value);
+								//判断全选框的状态
+								if(vm.judgech()){
+									$(".chooseall")[0].checked=true;
+								}else{
+									$(".chooseall")[0].checked=false;
+								}
+							}
+							console.log(vm.allobj);
+						},
+						/*批量删除*/
+						delall:function(){											
+							layer.confirm('确认要批量删除吗？',function(index){
+								console.log(vm.allobj);
+								if(vm.allobj.length=="0"){
+									alert("无数据可删除");
+									layer.close(index);
+								}else{
+	//								$.ajax({
+	//									type: 'POST',
+	//									url: '',
+	//									dataType: 'json',
+	//									success: function(data){
+	//										$(event.target).parents("tr").remove();
+	//										layer.msg('已删除!',{icon:1,time:1000});
+	//									},
+	//									error:function(data) {
+	//										console.log(data.msg);
+	//									},
+	//								});
+									alert("进行全部删除操作");
+								}
+										
+							});
+						},
+						/*用户管理-单独发信息*/
+						user_alonesend:function(title,url,id,w,h){
+							layer_show(title,url,w,h);
+						},
+						/*用户管理-批量发信息*/
+						user_multiplesend:function(title,url,id,w,h){
+							if(vm.allobj.length=="0"||vm.allobj.length=="1"){
+								alert("请选择两个及两个以上的数据");
+							}else{
+								layer_show(title,url,w,h);
+							}
+							
+						},
+						/*用户管理-禁启用*/
+						user_stop:function(event,id){
+							if($(event.target).html()=="禁用"){
+								layer.confirm('确认要禁用吗？',function(index){
+									//此处请求后台程序，下方是成功后的前台处理……		
+									$(event.target).html("激活")
+									layer.msg('已禁用!',{icon: 5,time:1000});
+								});
+							}else{
+								layer.confirm('确认要激活吗？',function(index){
+									//此处请求后台程序，下方是成功后的前台处理……
+									$(event.target).html("禁用")
+									layer.msg('已激活!', {icon: 6,time:1000});
+								});
+							}							
+						},
+						/*批量的禁启用*/
+						user_stopall:function(event){
+							if($(event.target).html()=="禁用"){
+								layer.confirm('确认要批量禁用吗？',function(){
+									//此处请求后台程序，下方是成功后的前台处理……		
+									for(var i=0;i<$(".forbidden").length;i++){
+										$(".forbidden")[i].text="激活";
+										$(event.target).html("激活")
+									}
+									layer.msg('已批量禁用!',{icon: 5,time:1000});
+								});
+							}else{
+								layer.confirm('确认要批量激活吗？',function(){
+									//此处请求后台程序，下方是成功后的前台处理……		
+									for(var i=0;i<$(".forbidden").length;i++){
+										$(".forbidden")[i].text="禁用";
+										$(event.target).html("禁用")
+									}
+									layer.msg('已批量激活!',{icon: 6,time:1000});
+								});
+							}
+						},
+						firstSel:function(){
+							var firstsel=$("#first").val();
+//							if(firstsel=="-1"){
+//								console.log("执行ajax查询全部操作");
+//								$("#second").hide();
+//							}else if(firstsel!=""&&firstsel!=null&&firstsel!="-1"){
+//								    //通过ajax传入后台，把orderTypeName数据传到后端  
+//						            $.post("xxxx(你的url)",{orderTypeName:orderTypeName},function(data){  
+//						                    var res = $.parseJSON(data);//把后台传回的json数据解析  
+//						                    var option;  
+//						                    $.each(res,function(i,n){//循环，i为下标从0开始，n为集合中对应的第i个对象  
+//						                        option += "<option value='"+n.orderTypeId+"'>"+n.orderTypeSmall+"</option>"  
+//						                    });  
+//						                    $("#second").html(option);//将循环拼接的字符串插入第二个下拉列表  
+//						                    $("#second").show();//把第二个下拉列表展示  
+//						            });  
+//							}
+							if(firstsel=="-1"){
+								console.log(firstsel);
+								$("#second").hide();
+								$("#third").hide();		
+							}else if(firstsel=="0"){
+								console.log(firstsel);
+								$("#second").hide();
+								$("#third").show();								
+								$("#third").attr("placeholder","请输入要查询的微信号");
+							}else if(firstsel=="1"){
+								console.log(firstsel);
+								$("#second").hide();
+								$("#third").show();						
+								$("#third").attr("placeholder","请输入要查询的手机号码");
+							}else if(firstsel=="2"){
+								console.log(firstsel);
+								$("#third").hide();	
+								$("#second").show();
+								var option="<option value='' disabled selected>"+"请输入要查询的当前状态"+"</option>";
+								option+="<option value='10'>"+"在线"+"</option>";
+								option+="<option value='10'>"+"离线"+"</option>";
+								$("#second").html(option);															
+							}
+						}
+					}
+				});
+			})
+		</script> 
+	</body>
+</html>

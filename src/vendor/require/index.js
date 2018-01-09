@@ -1,0 +1,1 @@
+define(["avalon","domReady!","css!av_modules/style/base.css"],function(){avalon.log("加载完成common"),avalon.templateCache.empty="&nbsp;",avalon.define({$id:"root",navigator:"empty"}),avalon.scan(),require(["layout"],function(){avalon.log("加载完成布局界面")})});

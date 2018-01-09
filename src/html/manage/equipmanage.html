@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<title>设备管理</title>
+		<link rel="stylesheet" href="../../css/manage/equipmanage.css" />		
+	</head>
+	<body>
+		<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理 <span class="c-gray en">&gt;</span> 设备管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+		<div id="app" class="container-fluid">
+			<div class="row">
+				<div class="col-xs-8">
+					<div class="sel">
+						<select>	
+						   <option>全国</option>
+						   <option>福建省</option>
+						   <option>江西省</option>
+						   <option>湖南省</option>
+						   <option>湖北省</option>
+						</select>
+						<select>	
+						   <option>福州市</option>
+						   <option>莆田市</option>
+						   <option>泉州市</option>
+						   <option>三明市</option>
+						</select>
+						<select>	
+						   <option>鼓楼区</option>
+						   <option>仓山区</option>
+						   <option>台江区</option>						   
+						</select>
+						<select class="select1" style="margin-left: 40px;">	
+						   <option></option>
+						</select>
+						<select class="select1">	
+						   <option></option>
+						</select>
+						<button type="button"><i class="Hui-iconfont">&#xe665;</i></button>
+					</div>
+				</div>
+				<div class="col-xs-4 text-right">
+					<div class="sel">
+						<select>	
+						   <option>排序</option>
+						   <option>升序</option>
+						   <option>降序</option>						 
+						</select>					
+					</div>
+				</div>	
+			</div>
+			<div>
+				<div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a href="javascript:;" v-on:click="equip_add('设备管理-添加','../equipmanage_subpage/equip_add.html','700','700')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加设备</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+				<table class="table table-border table-bordered table-hover table-bg table-sort">
+					<thead>
+						<tr class="text-c">
+							<th width="25"><input type="checkbox" name="" value=""></th>
+							<th width="80">设备编号</th>
+							<th width="80">所在网点</th>
+							<th width="80">设备机型</th>
+							<th width="100">投放时间</th>
+							<th width="80">网络连接</th>
+							<th width="80">当前温度</th>
+							<th width="60">设备运行状态</th>
+							<th width="60">设备直接负责人</th>
+							<th width="120">
+								批量操作<span style="float: right;color: orange;">添加+</span>
+								<div>
+									<a href="/">详情</a>	
+									<a href="/">发消息</a>	
+									<a href="/">取消</a>	
+								</div>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="text-c">
+							<td><input type="checkbox" value="1" name=""></td>
+							<td>ASDFHJK-456</td>
+							<td>江苏省-南京市-南京理工大学</td>
+							<td>ZM20/N</td>
+							<td>2017-11-11 8:30</td>
+							<td>正常连接</td>
+							<td>2℃</td>
+							<td>正常</td>
+							<td>张三<br />18850105180</td>
+							<td>
+								<div>
+									<a href="/">修改</a>	
+									<a title="柜格管理" href="javascript:;" v-on:click="equip_boxmanage('设备管理-柜格管理','../equipmanage_subpage/equip_boxmanage.html?id='+ms,'1','800','600')" class="ml-5">柜格管理</a>	
+									<a title="远程控制" href="javascript:;" v-on:click="equip_control('设备管理-远程控制','../equipmanage_subpage/equip_control.html?id='+ms,'1','500','350')" class="ml-5">远程控制</a>	
+								</div>
+								<div>
+									<a title="删除" href="javascript:;" v-on:click="equip_del($event,'1')" class="ml-5" >删除</a>	
+									<a title="设备二维码" href="javascript:;" v-on:click="equip_code('设备管理-设备二维码','../equipmanage_subpage/equip_qrcode.html?id='+ms,'1','500','350')" class="ml-5">设备二维码</a>	
+									<a href="/">设备日志</a>	
+								</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<div id="page" class="page_div"></div>
+			</div>			
+		</div>
+		<script type="text/javascript" src="../../vendor/require/require.js" ></script>
+		<script type="text/javascript" src="../../vendor/require-help.js" ></script>
+		<script>
+			require(['jquery','bootstrap','hui_admin','hui','layer','Vue'], function ($,bootstrap,hui_admin,hui,layer,Vue){				
+				var vm=new Vue({
+					el:'#app',
+					data:{
+	
+					},				
+					mounted:function(){
+						this.$nextTick(function() {
+					      this.init();
+					  	})
+					},				
+					methods:{
+						init:function(){
+							console.log("init");
+						},
+						/*设备管理-删除*/
+						equip_del:function(event,id){
+							layer.confirm('确认要删除吗？',function(index){
+//								$.ajax({
+//									type: 'POST',
+//									url: '',
+//									dataType: 'json',
+//									success: function(data){
+//										$(event.target).parents("tr").remove();
+//										layer.msg('已删除!',{icon:1,time:1000});
+//									},
+//									error:function(data) {
+//										console.log(data.msg);
+//									},
+//								});		
+								alert("进行删除操作");
+							});
+						},
+						/*设备管理-设备二维码*/
+						equip_code:function(title,url,id,w,h){
+							layer_show(title,url,w,h);
+						},
+						/*设备管理-添加设备*/
+						equip_add:function(title,url,id,w,h){
+							layer_show(title,url,w,h);
+						},
+						/*设备管理-远程控制*/
+						equip_control:function(title,url,id,w,h){
+							layer_show(title,url,w,h);
+						},
+						/*设备管理-柜格管理*/
+						equip_boxmanage:function(title,url,id,w,h){
+							layer_show(title,url,w,h);
+						},
+					}
+				});
+			})
+		</script> 
+	</body>
+</html>

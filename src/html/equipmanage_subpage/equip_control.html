@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<title>设备管理-远程控制</title>
+		<link rel="stylesheet" href="../../css/equipmanage_subpage/equip_control.css" />
+	</head>
+	<body>	
+		<article id="app" class="page-container">
+			<form class="form form-horizontal" id="form-admin-add">
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>设备温度：</label>
+					<div class="formControls col-xs-8 col-sm-9"> 
+						<span class="select-box" style="width:150px;">
+							<select class="select" size="1">
+								<option value="1">0 ℃</option>
+								<option value="2">1 ℃</option>
+								<option value="2">2 ℃</option>
+								<option value="2">3 ℃</option>
+								<option value="3">4 ℃</option>
+							</select>
+						</span> 						
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>语音系统：</label>
+					<div class="formControls col-xs-8 col-sm-9">
+						<span class="input-group" style="width:200px;">
+							<input type="range" v-model=ranges id="range" name="range" min="1" max="100"/>
+						</span>
+						<div style="width:200px;text-align: center;">
+							{{ranges}}
+						</div>
+					</div>
+				</div>
+				<div class="row cl">
+					<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>柜门状态显示灯：</label>
+					<div class="formControls col-xs-8 col-sm-9"> 
+						<span class="select-box" style="width:100px;">
+							<select class="select" size="1">
+								<option value="1">开</option>								
+								<option value="2">关</option>								
+							</select>
+						</span> 						
+					</div>
+				</div>
+				<div class="row cl">
+					<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+						<input class="btn btn-primary radius" type="submit" value="确认">
+					</div>
+				</div>
+			</form>
+		</article>
+		<script type="text/javascript" src="../../vendor/require/require.js" ></script>
+		<script type="text/javascript" src="../../vendor/require-help.js" ></script>
+		<script>
+			require(['jquery','bootstrap','hui_admin','hui','Vue','jquery_validate','WdatePicker','vue_router'], function ($,bootstrap,hui_admin,hui,Vue,jquery_validate,WdatePicker,vue_router){				
+				var vm=new Vue({
+					el:'#app',
+					data:{
+						ranges:"20"
+					},				
+					mounted:function(){
+						this.$nextTick(function() {
+					      this.init();
+					  	})
+					},				
+					methods:{
+						init:function(){							
+							console.log(vm.GetQueryString("id"));							
+						},						
+						GetQueryString:function(name){
+						     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+						     var r = window.location.search.substr(1).match(reg);
+						     if(r!=null)return  unescape(r[2]); return null;
+						}
+					}
+				});
+			})
+		</script> 
+	</body>
+</html>

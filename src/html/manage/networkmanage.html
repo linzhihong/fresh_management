@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<title>网点管理</title>
+		<link rel="stylesheet" href="../../css/manage/neyworkmanage.css" />		
+	</head>
+	<body>		
+		<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理 <span class="c-gray en">&gt;</span> 网点管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+		<div id="app" class="container-fluid">
+			<div class="row">
+				<div class="col-xs-8">
+					<div class="sel">
+						<select>	
+						   <option>全国</option>
+						   <option>福建省</option>
+						   <option>江西省</option>
+						   <option>湖南省</option>
+						   <option>湖北省</option>
+						</select>
+						<select>	
+						   <option>全国</option>
+						   <option>福建省</option>
+						   <option>江西省</option>
+						   <option>湖南省</option>
+						   <option>湖北省</option>
+						</select>
+						<select>	
+						   <option>全国</option>
+						   <option>福建省</option>
+						   <option>江西省</option>
+						   <option>湖南省</option>
+						   <option>湖北省</option>
+						</select>
+						<select class="select1">	
+						   <option></option>
+						</select>
+						<select class="select1">	
+						   <option></option>
+						</select>
+						<button type="button"><i class="Hui-iconfont">&#xe665;</i></button>
+					</div>
+				</div>
+				<div class="col-xs-4 text-right">
+					<div class="sel">
+						<select>	
+						   <option>排序</option>
+						   <option>升序</option>
+						   <option>降序</option>						 
+						</select>						
+					</div>
+				</div>	
+			</div>
+			<div>
+				<div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a href="javascript:;" v-on:click="network_add('网点管理-添加','../networkmanage_subpage/network_add.html','400','700')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加网点</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>				
+				<table class="table table-border table-bordered table-hover table-bg table-sort">
+					<thead>
+						<tr class="text-c">
+							<th width="25"><input type="checkbox" name="" value=""></th>
+							<th width="70">网点名称</th>
+							<th width="60">所在省市</th>
+							<th width="80">具体地址</th>
+							<th width="60">网点设备数</th>
+							<th width="80">网点设立时间</th>
+							<th width="80">网点官方联系人</th>
+							<th width="60">网点直接负责人</th>
+							<th width="60">所在市区负责人</th>
+							<th width="60">所在省区负责人</th>
+							<th width="120">
+								批量操作
+								<div>
+									<a href="/">修改</a>	
+									<a href="/">删除</a>	
+								</div>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="text-c">
+							<td><input type="checkbox" value="1" name=""></td>
+							<td>南京大学</td>
+							<td>江苏省-南京市</td>
+							<td>玄武区孝陵卫200号</td>
+							<td>5</td>
+							<td>2017-11-11 8:30</td>
+							<td>张三<br />18850105180</td>
+							<td>张三<br />18850105180</td>
+							<td>张三<br />18850105180</td>
+							<td>张三<br />18850105180</td>
+							<td>
+								<div>
+									<a href="/">修改</a>	
+									<a href="/">删除</a>	
+									<a href="/">网点日志</a>	
+								</div>
+							</td>
+						</tr>						
+					</tbody>
+				</table>
+				<div id="page" class="page_div"></div>
+			</div>			
+		</div>
+		<script type="text/javascript" src="../../vendor/require/require.js" ></script>
+		<script type="text/javascript" src="../../vendor/require-help.js" ></script>
+		<script>
+			require(['jquery','bootstrap','hui_admin','hui','Vue','layer'], function ($,bootstrap,hui_admin,hui,Vue,layer){				
+				var vm=new Vue({
+					el:'#app',
+					data:{
+	
+					},				
+					mounted:function(){
+						this.$nextTick(function() {
+					      this.init();
+					  	})
+					},				
+					methods:{
+						init:function(){
+							console.log("init");
+						},
+						network_add:function(title,url,id,w,h){
+							layer_show(title,url,w,h);
+						},
+					}
+				});
+			})
+		</script>  
+	</body>
+</html>
