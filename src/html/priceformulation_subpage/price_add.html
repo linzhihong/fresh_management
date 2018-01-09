@@ -8,8 +8,8 @@
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
 		<title>价格制定-添加</title>
 		<style>
-			.form-horizontal .form-group{
-				margin-left: 0px !important;
+			.form-horizontal .form-label{
+				text-align: right !important;
 			}
 		</style>
 	</head>
@@ -48,7 +48,7 @@
 					<label class="form-label col-xs-3 col-sm-2"><span class="c-red">*</span>执行起始时间：</label>
 					<div class="formControls col-xs-9 col-sm-10">
 						<span class="input-group" style="width:200px;">
-							<input type="text" onfocus="WdatePicker({ maxDate:'#F{$dp.$D(\'logmax\')||\'%y-%M-%d %H-%m-%s\'}' })" id="logmin" class="input-text Wdate">
+							<input type="text" onfocus="WdatePicker({maxDate:'#F{$dp.$D(\'logmax\')}',dateFmt:'yyyy-MM-dd HH:mm:ss'})" id="logmin" class="input-text Wdate">
 						</span> 
 					</div>
 				</div>
@@ -56,7 +56,7 @@
 					<label class="form-label col-xs-3 col-sm-2"><span class="c-red">*</span>执行结束时间：</label>
 					<div class="formControls col-xs-9 col-sm-10">
 						<span class="input-group" style="width:200px;">
-							<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}'})" id="logmax" class="input-text Wdate">
+							<input type="text" onfocus="WdatePicker({ minDate:'#F{$dp.$D(\'logmin\')}',dateFmt:'yyyy-MM-dd HH:mm:ss'})" id="logmax" class="input-text Wdate">
 						</span> 
 					</div>
 				</div>

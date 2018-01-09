@@ -101,7 +101,7 @@
 		<script type="text/javascript" src="../../vendor/require/require.js" ></script>
 		<script type="text/javascript" src="../../vendor/require-help.js" ></script>
 		<script>
-			require(['jquery','bootstrap','hui_admin','hui','Vue'], function ($,bootstrap,hui_admin,hui,Vue){				
+			require(['jquery','bootstrap','hui_admin','hui','Vue','layer'], function ($,bootstrap,hui_admin,hui,Vue,layer){				
 				var vm=new Vue({
 					el:'#app',
 					data:{
@@ -115,11 +115,12 @@
 					methods:{
 						init:function(){
 							console.log("init");
-						}
+						},
+						price_add:function(title,url,id,w,h){
+							layer_show(title,url,w,h);
+						},
 					},
-					price_add::function(title,url,id,w,h){
-						layer_show(title,url,w,h);
-					},
+					
 				});
 			})
 		</script> 
