@@ -197,7 +197,7 @@ function layer_show(title,url,w,h){
 	};
 	layer.open({
 		type: 2,
-		area: [w+'px', h +'px'],
+		area: [w+'%', h +'%'],
 		fix: false, //不固定
 		maxmin: true,
 		shade:0.4,
