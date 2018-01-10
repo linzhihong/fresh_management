@@ -1,0 +1,21 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.form-horizontal .form-label{
+	text-align: right !important;
+}
+.code_box{
+	width: 200px;
+	height: 200px;
+	background: green;
+	margin-bottom: 10px !important;
+}
+.getcode_btn{
+	line-height: 12px;
+	font-size: 11px;
+	padding: 3px 5px !important;
+}
+input[type="submit"]{
+	padding: 3px 25px !important;
+}

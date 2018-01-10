@@ -52,9 +52,9 @@
 					</div>
 				</div>	
 			</div>
-			<hr />
+<!--			<hr />-->
 			<div>
-				<div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a href="javascript:;" v-on:click="price_add('价格制定-添加','../priceformulation_subpage/price_add.html','700','700')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加模式</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>				
+				<div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a href="javascript:;" v-on:click="price_add('价格制定-添加','../priceformulation_subpage/price_add.html','','550','400')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加模式</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>				
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
 					<thead>
 						<tr class="text-c">
@@ -88,7 +88,6 @@
 							<td>
 								<div>
 									<a href="/">停用</a>	
-									<a href="/">启用</a>	
 									<a href="/">删除</a>	
 								</div>								
 							</td>
@@ -116,6 +115,7 @@
 						init:function(){
 							console.log("init");
 						},
+						//价格制定--添加
 						price_add:function(title,url,id,w,h){
 							layer_show(title,url,w,h);
 						},

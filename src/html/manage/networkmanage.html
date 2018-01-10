@@ -56,7 +56,7 @@
 				</div>	
 			</div>
 			<div>
-				<div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a href="javascript:;" v-on:click="network_add('网点管理-添加','../networkmanage_subpage/network_add.html','400','700')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加网点</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>				
+				<div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a href="javascript:;" v-on:click="network_add('网点管理-添加','../networkmanage_subpage/network_add.html','','600','500')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加网点</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>				
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
 					<thead>
 						<tr class="text-c">
@@ -73,7 +73,6 @@
 							<th width="120">
 								批量操作
 								<div>
-									<a href="/">修改</a>	
 									<a href="/">删除</a>	
 								</div>
 							</th>
@@ -93,8 +92,8 @@
 							<td>张三<br />18850105180</td>
 							<td>
 								<div>
-									<a href="/">修改</a>	
-									<a href="/">删除</a>	
+									<a title="修改" href="javascript:;" v-on:click="network_update('网点管理-修改','../networkmanage_subpage/network_update.html','','600','500')" class="ml-5">修改</a>	
+									<a title="删除" href="javascript:;" v-on:click="network_del($event,'1')" class="ml-5">删除</a>	
 									<a href="/">网点日志</a>	
 								</div>
 							</td>
@@ -122,8 +121,31 @@
 						init:function(){
 							console.log("init");
 						},
+						/*网点-添加*/
 						network_add:function(title,url,id,w,h){
 							layer_show(title,url,w,h);
+						},
+						/*网点-修改*/
+						network_update:function(title,url,id,w,h){
+							layer_show(title,url,w,h);
+						},
+						/*网点-删除*/
+						network_del:function(event,id){
+							layer.confirm('确认要删除吗？',function(index){
+//								$.ajax({
+//									type: 'POST',
+//									url: '',
+//									dataType: 'json',
+//									success: function(data){
+//										$(event.target).parents("tr").remove();
+//										layer.msg('已删除!',{icon:1,time:1000});
+//									},
+//									error:function(data) {
+//										console.log(data.msg);
+//									},
+//								});		
+								alert("进行删除操作");
+							});
 						},
 					}
 				});

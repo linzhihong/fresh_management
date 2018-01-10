@@ -1,0 +1,197 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="renderer" content="webkit|ie-comp|ie-stand">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<title>管理员管理-个人信息</title>
+		<style>
+			.form-horizontal .form-group{
+				margin-left: 0px !important;
+			}
+			.form-horizontal .form-label{
+				text-align: right !important;
+			}
+			.upload-url{
+			    display: inline-block !important;
+			}
+			.upload-btn{
+			    display: inline-block !important;
+			}
+		</style>
+	</head>
+	<body>	
+		<article id="app" class="page-container">
+			<form class="form form-horizontal" id="form-admin-add">
+				<div class="col-xs-6">
+					<div class="row cl">
+						<label class="form-label col-xs-5 col-sm-4"><span class="c-red">*</span>管理员姓名：</label>
+						<div class="formControls col-xs-7 col-sm-8">
+							<span class="input-group" style="width:120px;">
+								<input type="text" class="input-text" value="" placeholder="" id="adminname" name="adminname">
+							</span>
+						</div>
+					</div>
+					<div class="row cl">
+						<label class="form-label col-xs-5 col-sm-4"><span class="c-red">*</span>性别：</label>
+						<div class="formControls col-xs-7 col-sm-8"> 
+							<span class="select-box" style="width:150px;">
+								<select class="select" name="sex" size="1">
+									<option value="0">男</option>
+									<option value="1">女</option>								
+								</select>
+							</span> 
+						</div>
+					</div>
+					<div class="row cl">
+						<label class="form-label col-xs-5 col-sm-4"><span class="c-red">*</span>身份证号码：</label>
+						<div class="formControls col-xs-7 col-sm-8">
+							<span class="input-group" style="width:200px;">
+								<input type="text" class="input-text" value="" placeholder="" id="idcard" name="idcard">
+							</span>
+						</div>
+					</div>
+					<div class="row cl">
+						<label class="form-label col-xs-5 col-sm-4"><span class="c-red">*</span>手机号码：</label>
+						<div class="formControls col-xs-7 col-sm-8">
+							<span class="input-group" style="width:200px;">
+								<input type="text" class="input-text" value="" placeholder="" id="phone" name="phone">
+							</span>
+						</div>
+					</div>
+					<div class="row cl">
+						<label class="form-label col-xs-5 col-sm-4"><span class="c-red">*</span>紧急联系人：</label>
+						<div class="formControls col-xs-7 col-sm-8">
+							<span class="input-group" style="width:100px;float: left;">
+								<input type="text" class="input-text" value="" placeholder="姓名" id="contactname" name="contactname">
+							</span>
+							<span class="input-group" style="width:150px;float: left;">
+								<input type="text" class="input-text" value="" placeholder="手机号码" id="contactphone" name="contactphone">
+							</span>
+						</div>
+					</div>
+					<div class="row cl">
+						<label class="form-label col-xs-5 col-sm-4"><span class="c-red">*</span>管理级别：</label>
+						<div class="formControls col-xs-7 col-sm-8"> 
+							<span class="select-box" style="width:150px;">
+								<select class="select" name="managelevel" size="1">
+									<option value="0">1</option>
+									<option value="1">2</option>	
+									<option value="2">3</option>
+									<option value="3">4</option>
+								</select>
+							</span> 
+						</div>
+					</div>
+					<div class="row cl">
+						<label class="form-label col-xs-5 col-sm-4"><span class="c-red">*</span>管理权限：</label>
+						<div class="formControls col-xs-7 col-sm-8"> 
+							<span class="select-box" style="width:150px;">
+								<select class="select" name="managepower" size="1">
+									<option value="0">全国全类</option>
+									<option value="1">省级</option>
+									<option value="2">市级</option>
+									<option value="3">区级</option>
+								</select>
+							</span> 
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="row cl">
+						<label class="form-label col-xs-5 col-sm-4"><span class="c-red">*</span>身份证原件：</label>
+						<div class="formControls col-xs-7 col-sm-8"> 
+							<div style="width: 250px;height: 150px;background: #DD1144;"></div>
+						</div>
+					</div>
+					<div class="row cl">
+						<label class="form-label col-xs-5 col-sm-4"><span class="c-red">*</span>居家生活照：</label>
+						<div class="formControls col-xs-7 col-sm-8"> 
+							<div style="width: 250px;height: 150px;background: #DD1144;"></div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</article>
+		<script type="text/javascript" src="../../vendor/require/require.js" ></script>
+		<script type="text/javascript" src="../../vendor/require-help.js" ></script>
+		<script>
+			require(['jquery','bootstrap','hui_admin','hui','Vue','jquery_validate','vue_router'], function ($,bootstrap,hui_admin,hui,Vue,jquery_validate,vue_router){				
+				var vm=new Vue({
+					el:'#app',
+					data:{
+	
+					},				
+					mounted:function(){
+						this.$nextTick(function() {
+					      this.init();
+					  	})
+					},				
+					methods:{
+						init:function(){							
+//							console.log(vm.GetQueryString("id"));		
+							$.extend($.validator.messages, {
+								required: "required",
+							});
+							$("#form-admin-add").validate({
+								rules:{
+									adminname:{
+										required:true,
+									},		
+									sex:{
+										required:true,
+									},
+									idcard:{
+										required:true,
+									},
+									phone:{
+										required:true,
+									},
+									contactname:{
+										required:true,
+									},
+									contactphone:{
+										required:true,
+									},
+									managelevel:{
+										required:true,
+									},
+									managepower:{
+										required:true,
+									}
+								},
+								onkeyup:false,
+								focusCleanup:true,
+								success:"valid",
+								submitHandler:function(form){
+//									$(form).ajaxSubmit({
+//										type: 'post',
+//										url: "xxxxxxx" ,
+//										success: function(data){
+//											layer.msg('添加成功!',{icon:1,time:1000});
+//										},
+//						                error: function(XmlHttpRequest, textStatus, errorThrown){
+//											layer.msg('error!',{icon:1,time:1000});
+//										}
+//									});
+									alert("haha");
+									var index = parent.layer.getFrameIndex(window.name);
+//									parent.$('.btn-refresh').click();
+//									parent.layer.close(index);
+									alert(index);
+								}
+							});
+						},						
+						GetQueryString:function(name){
+						     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+						     var r = window.location.search.substr(1).match(reg);
+						     if(r!=null)return  unescape(r[2]); return null;
+						}
+					}
+				});
+			})
+		</script> 
+	</body>
+</html>

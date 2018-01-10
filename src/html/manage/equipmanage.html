@@ -53,7 +53,7 @@
 				</div>	
 			</div>
 			<div>
-				<div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a href="javascript:;" v-on:click="equip_add('设备管理-添加','../equipmanage_subpage/equip_add.html','700','700')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加设备</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
+				<div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a href="javascript:;" v-on:click="equip_add('设备管理-添加','../equipmanage_subpage/equip_add.html','','700','630')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加设备</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
 					<thead>
 						<tr class="text-c">
@@ -67,11 +67,10 @@
 							<th width="60">设备运行状态</th>
 							<th width="60">设备直接负责人</th>
 							<th width="120">
-								批量操作<span style="float: right;color: orange;">添加+</span>
+								批量操作
 								<div>
-									<a href="/">详情</a>	
-									<a href="/">发消息</a>	
-									<a href="/">取消</a>	
+									<a href="/">柜格管理</a>	
+									<a href="/">远程控制</a>	
 								</div>
 							</th>
 						</tr>
@@ -89,9 +88,9 @@
 							<td>张三<br />18850105180</td>
 							<td>
 								<div>
-									<a href="/">修改</a>	
+									<a title="修改" href="javascript:;" v-on:click="equip_update('设备管理-修改','../equipmanage_subpage/equip_update.html?id='+ms,'1','700','300')" class="ml-5">修改</a>	
 									<a title="柜格管理" href="javascript:;" v-on:click="equip_boxmanage('设备管理-柜格管理','../equipmanage_subpage/equip_boxmanage.html?id='+ms,'1','800','600')" class="ml-5">柜格管理</a>	
-									<a title="远程控制" href="javascript:;" v-on:click="equip_control('设备管理-远程控制','../equipmanage_subpage/equip_control.html?id='+ms,'1','500','350')" class="ml-5">远程控制</a>	
+									<a title="远程控制" href="javascript:;" v-on:click="equip_control('设备管理-远程控制','../equipmanage_subpage/equip_control.html?id='+ms,'1','500','300')" class="ml-5">远程控制</a>	
 								</div>
 								<div>
 									<a title="删除" href="javascript:;" v-on:click="equip_del($event,'1')" class="ml-5" >删除</a>	
@@ -155,6 +154,10 @@
 						},
 						/*设备管理-柜格管理*/
 						equip_boxmanage:function(title,url,id,w,h){
+							layer_show(title,url,w,h);
+						},
+						/*设备管理-修改*/
+						equip_update:function(title,url,id,w,h){
 							layer_show(title,url,w,h);
 						},
 					}

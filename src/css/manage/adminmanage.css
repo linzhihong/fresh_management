@@ -2,10 +2,6 @@
 	padding: 0px;
 	margin: 0px;
 }
-.breadcrumb{
-	padding: 0px 20px!important;
-	margin-bottom: 0px !important;
-}
 .sel{
 	width: 100%;
 	height: 60px;
@@ -59,14 +55,7 @@ table td:last-child a{
 	color: #333333;
 	text-decoration: underline !important;
 }
-hr{
-	margin-top: 0px !important;
-}
 
-
-#tab-system{
-	margin-top: 20px !important;
-}
 /*
   * 外面盒子样式---自己定义
   */

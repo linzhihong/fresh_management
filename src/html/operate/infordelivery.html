@@ -22,6 +22,20 @@
 						   <option>湖南省</option>
 						   <option>湖北省</option>
 						</select>
+						<select>	
+						   <option>全国</option>
+						   <option>福建省</option>
+						   <option>江西省</option>
+						   <option>湖南省</option>
+						   <option>湖北省</option>
+						</select>
+						<select>	
+						   <option>全国</option>
+						   <option>福建省</option>
+						   <option>江西省</option>
+						   <option>湖南省</option>
+						   <option>湖北省</option>
+						</select>
 						<select class="select1">	
 						   <option></option>
 						</select>
@@ -41,8 +55,8 @@
 					</div>
 				</div>	
 			</div>
-			<hr />
-			<div class="mt-20">
+			<div>
+				<div class="cl pd-5 bg-1 bk-gray"> <span class="l"><a href="javascript:;" v-on:click="infor_add('信息发布-添加','../infordelivery_subpage/infor_add.html','','800','600')" class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加信息</a></span> <span class="r">共有数据：<strong>54</strong> 条</span> </div>												
 				<table class="table table-border table-bordered table-hover table-bg table-sort">
 					<thead>
 						<tr class="text-c">
@@ -59,7 +73,6 @@
 							<th width="100">								
 								<div>
 									<a href="/">日志</a>	
-									<a href="/">添加+</a>	
 								</div>
 							</th>
 						</tr>
@@ -85,7 +98,7 @@
 							<td>
 								<div>
 									<a href="/">取消</a>	
-									<a href="/">修改</a>	
+									<a href="javascript:;" v-on:click="infor_update('信息发布-修改','../infordelivery_subpage/infor_update.html','','800','600')">修改</a>	
 								</div>								
 							</td>
 						</tr>						
@@ -97,7 +110,7 @@
 		<script type="text/javascript" src="../../vendor/require/require.js" ></script>
 		<script type="text/javascript" src="../../vendor/require-help.js" ></script>
 		<script>
-			require(['jquery','bootstrap','hui_admin','hui','Vue'], function ($,bootstrap,hui_admin,hui,Vue){				
+			require(['jquery','bootstrap','hui_admin','hui','Vue','layer'], function ($,bootstrap,hui_admin,hui,Vue,layer){				
 				var vm=new Vue({
 					el:'#app',
 					data:{
@@ -111,7 +124,15 @@
 					methods:{
 						init:function(){
 							console.log("init");
-						}
+						},
+						//信息发布--添加
+						infor_add:function(title,url,id,w,h){
+							layer_show(title,url,w,h);
+						},
+						//信息发布--修改
+						infor_update:function(title,url,id,w,h){
+							layer_show(title,url,w,h);
+						},
 					}
 				});
 			})
