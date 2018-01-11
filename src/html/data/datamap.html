@@ -15,17 +15,60 @@
 	</head>
 	<body>
 		<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 数据 <span class="c-gray en">&gt;</span> 数据地图 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
-		<div class="container-fluid">
-			<div class="sel">
-				<select>
-				  <option>全国</option>
-				  <option>福建省</option>
-				  <option>江西省</option>
-				  <option>湖南省</option>
-				  <option>湖北省</option>
-				</select>
+		<div class="container-fluid">			
+			<div class="row">
+				<div class="col-xs-2">
+					<div class="sel">
+						<select>
+						  <option>全国</option>
+						  <option>福建省</option>
+						  <option>江西省</option>
+						  <option>湖南省</option>
+						  <option>湖北省</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-xs-7">
+					<div id="main"></div>	
+				</div>
+				<div class="col-xs-3">
+					<div class="datatitle">
+						<img class="img1" src="../../img/public/logo.png" alt="" /><span>冰小柜</span>
+						<a href=""><img class="img2" src="../../img/public/fullscreen.png" alt="" /></a>
+					</div>
+					<div class="dataul">
+						<ul>
+							<li>
+								<span class="sp1">3000</span><span class="sp2">当前闲置小柜总数(门)</span>
+							</li>
+							<li>
+								<span class="sp1">3000</span><span class="sp2">当前正常运行设备总数(台)</span>
+							</li>
+							<li>
+								<span class="sp1">3000</span><span class="sp2">当前故障设备总数(台)</span>
+							</li>
+							<li>
+								<span class="sp1">3000</span><span class="sp2">当前订单总数(门)</span>
+							</li>
+							<li>
+								<span class="sp1">3000</span><span class="sp2">当前消费总时长(小时)</span>
+							</li>
+							<li>
+								<span class="sp1">3000</span><span class="sp2">当前消费可收费用总额(元)</span>
+							</li>
+							<li>
+								<span class="sp1">3000</span><span class="sp2">当前充值余额总数(元)</span>
+							</li>
+							<li>
+								<span class="sp1">3000</span><span class="sp2">当前赠送总时余额(小时)</span>
+							</li>
+							<li>
+								<span class="sp3">3000</span><span class="sp2">当前异常信息(条)</span>
+							</li>
+						</ul>
+					</div>
+				</div>
 			</div>
-			<div id="main"></div>		
 		</div>
 		<script type="text/javascript" src="../../vendor/require/require.js" ></script>
 		<script type="text/javascript" src="../../vendor/require-help.js" ></script>

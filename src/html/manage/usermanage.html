@@ -13,7 +13,7 @@
 		<nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span> 管理 <span class="c-gray en">&gt;</span> 用户管理 <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 		<div id="app" class="container-fluid">
 			<div class="row">
-				<div class="col-xs-8">
+				<div class="col-xs-4">
 					<div class="sel">
 						<select>	
 						   	<option>全国</option>
@@ -22,9 +22,19 @@
 						   	<option>湖南省</option>
 						   	<option>湖北省</option>
 						</select>
+						<select>	
+						   	<option>全国</option>
+						   	<option>福建省</option>
+						   	<option>江西省</option>
+						   	<option>湖南省</option>
+						   	<option>湖北省</option>
+						</select>						
+					</div>
+				</div>
+				<div class="col-xs-8 text-right">					
+					<div class="sel">
 						<select id="first" class="select1" v-on:change="firstSel()">	
 							<option value="-1">选择</option>
-						    <option value="0">微信号</option>
 						   	<option value="1">手机号码</option>
 						   	<option value="2">当前状态</option>
 						</select>
@@ -33,10 +43,6 @@
 						</select>
 						<input id="third" type="text" name="" value=""/>
 						<button type="button"><i class="Hui-iconfont">&#xe665;</i></button>
-					</div>
-				</div>
-				<div class="col-xs-4 text-right">
-					<div class="sel">
 						<select class="select1">	
 						   <option>排序</option>
 						   <option>按注册时间排序</option>
@@ -45,7 +51,7 @@
 						   <option>按当前可用余额排序</option>						 
 						   <option>按备用金余额排序</option>						 
 						   <option>按赠送时长余额排序</option>						 
-						</select>						
+						</select>
 					</div>
 				</div>	
 			</div>
@@ -57,6 +63,7 @@
 						<tr class="text-c">
 							<th width="25"><input v-on:click="chooseall($event)" type="checkbox" name="" value="" class="chooseall"></th>
 							<th width="80">手机号码</th>
+							<th width="50">地区</th>
 							<th width="80">注册时间</th>
 							<th width="60">用柜次数</th>
 							<th width="80">用柜总时</th>
@@ -68,8 +75,7 @@
 								批量操作
 								<div>
 									<a v-on:click="user_stopall($event)" href="javascript:;" title="禁用">禁用</a>	
-									<a title="发信息" href="javascript:;" v-on:click="user_multiplesend('用户管理-发信息','../usermanage_subpage/user_multiplesend.html?id='+allobj,'1','80','90')" class="ml-5">发消息</a>	
-									<a href="/">用户日志</a>	
+									<a title="发信息" href="javascript:;" v-on:click="user_multiplesend('用户管理-发信息','../usermanage_subpage/user_multiplesend.html?id='+allobj,'1','80','70')" class="ml-5">发消息</a>	
 								</div>
 							</th>
 						</tr>
@@ -78,6 +84,7 @@
 						<tr class="text-c">
 							<td><input v-on:click="choose($event)" class="datainput" type="checkbox" value="1" name=""></td>
 							<td>12345678912</td>
+							<td>福建省福州市</td>
 							<td>2017-11-11  8:30</td>
 							<td>5</td>
 							<td>20小时50分钟</td>
@@ -87,13 +94,14 @@
 							<td>在线</td>
 							<td class="td-manage">
 								<a v-on:click="user_stop($event,'10001')" href="javascript:;" title="禁用" class="forbidden">禁用</a>	
-								<a title="发信息" href="javascript:;" v-on:click="user_alonesend('用户管理-发信息','../usermanage_subpage/user_alonesend.html?id='+ms,'1','80','90')" class="ml-5">发消息</a>	
+								<a title="发信息" href="javascript:;" v-on:click="user_alonesend('用户管理-发信息','../usermanage_subpage/user_alonesend.html?id='+ms,'1','80','80')" class="ml-5">发消息</a>	
 								<a href="/">用户日志</a>	
 							</td>
 						</tr>
 						<tr class="text-c">
 							<td><input v-on:click="choose($event)" class="datainput" type="checkbox" value="2" name=""></td>
 							<td>18850105180</td>
+							<td>福建省福州市</td>
 							<td>2017-11-11  8:30</td>
 							<td>5</td>
 							<td>20小时50分钟</td>
@@ -103,7 +111,7 @@
 							<td>在线</td>
 							<td class="td-manage">
 								<a v-on:click="user_stop($event,'10002')" href="javascript:;" title="禁用" class="forbidden">禁用</a>	
-								<a title="发信息" href="javascript:;"  v-on:click="user_alonesend('用户管理-发信息','../usermanage_subpage/user_alonesend.html?id='+ms,'1','80','90')"  class="ml-5">发消息</a>	
+								<a title="发信息" href="javascript:;"  v-on:click="user_alonesend('用户管理-发信息','../usermanage_subpage/user_alonesend.html?id='+ms,'1','80','80')"  class="ml-5">发消息</a>	
 								<a href="/">用户日志</a>	
 							</td>
 						</tr>	
@@ -283,11 +291,6 @@
 								console.log(firstsel);
 								$("#second").hide();
 								$("#third").hide();		
-							}else if(firstsel=="0"){
-								console.log(firstsel);
-								$("#second").hide();
-								$("#third").show();								
-								$("#third").attr("placeholder","请输入要查询的微信号");
 							}else if(firstsel=="1"){
 								console.log(firstsel);
 								$("#second").hide();

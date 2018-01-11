@@ -32,7 +32,11 @@
 						   <option>鼓楼区</option>
 						   <option>仓山区</option>
 						   <option>台江区</option>						   
-						</select>
+						</select>						
+					</div>
+				</div>
+				<div class="col-xs-4 text-right">
+					<div class="sel">
 						<select class="select1" style="margin-left: 40px;">	
 						   <option></option>
 						</select>
@@ -40,10 +44,6 @@
 						   <option></option>
 						</select>
 						<button type="button"><i class="Hui-iconfont">&#xe665;</i></button>
-					</div>
-				</div>
-				<div class="col-xs-4 text-right">
-					<div class="sel">
 						<select>	
 						   <option>排序</option>
 						   <option>升序</option>
@@ -64,7 +64,7 @@
 							<th width="100">投放时间</th>
 							<th width="80">网络连接</th>
 							<th width="80">当前温度</th>
-							<th width="60">设备运行状态</th>
+							<th width="60">设备状态</th>
 							<th width="60">设备直接负责人</th>
 							<th width="120">
 								批量操作
@@ -88,7 +88,7 @@
 							<td>张三<br />18850105180</td>
 							<td>
 								<div>
-									<a title="修改" href="javascript:;" v-on:click="equip_update('设备管理-修改','../equipmanage_subpage/equip_update.html?id='+ms,'1','60','60')" class="ml-5">修改</a>	
+									<a>设备禁用</a>	
 									<a title="柜格管理" href="javascript:;" v-on:click="equip_boxmanage('设备管理-柜格管理','../equipmanage_subpage/equip_boxmanage.html?id='+ms,'1','80','95')" class="ml-5">柜格管理</a>	
 									<a title="远程控制" href="javascript:;" v-on:click="equip_control('设备管理-远程控制','../equipmanage_subpage/equip_control.html?id='+ms,'1','50','50')" class="ml-5">远程控制</a>	
 								</div>
